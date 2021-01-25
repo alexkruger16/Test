@@ -1,15 +1,23 @@
 package com.fisa.demo;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.fisa.demo.services.IConferenceTrackManagerService;
-//import com.fisa.demo.vo.ConferenceVO;
-//import com.fisa.demo.vo.SessionVO;
+import com.fisa.demo.vo.ConferenceRequestVO;
+import com.fisa.demo.vo.ConferenceVO;
+import com.fisa.demo.vo.SessionVO;
+import com.fisa.demo.vo.TalkVO;
 
 @SpringBootApplication
-public class DemoApplication /*implements CommandLineRunner*/ {
+public class DemoApplication implements CommandLineRunner {
 	
 	@Autowired
 	IConferenceTrackManagerService conferenceTrackManagerService;
@@ -18,16 +26,16 @@ public class DemoApplication /*implements CommandLineRunner*/ {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 	
-	/*@Override
+	@Override
     public void run(String... args) throws Exception {
 		ConferenceVO conference = conferenceTrackManagerService.getConference(getParametersConference());
 		printConference(conference);
-    }*/
+    }
 
 	/**
 	 * @return
 	 */
-	/*private ConferenceRequestVO getParametersConference() {
+	private ConferenceRequestVO getParametersConference() {
 		ConferenceRequestVO conferenceRequestVO = new ConferenceRequestVO();
 		conferenceRequestVO.setNameConference("Programming conference");
 		conferenceRequestVO.setStartDate(LocalDate.now().plusDays(1));
@@ -39,30 +47,30 @@ public class DemoApplication /*implements CommandLineRunner*/ {
 		conferenceRequestVO.setEndTimeAfternoon(LocalTime.of(17, 0));
 		conferenceRequestVO.setTimeNetworkingEvent(LocalTime.of(17, 0));
 		List<TalkVO> talks = new ArrayList<TalkVO>();
-		talks.add(new TalkVO("Writing Fast Tests Against Enterprise Rails", 60));
-		talks.add(new TalkVO("Overdoing it in Python", 45));
-		talks.add(new TalkVO("Lua for the Masses", 30));
-		talks.add(new TalkVO("Ruby Errors from Mismatched Gem Versions", 45));
-		talks.add(new TalkVO("Common Ruby Errors", 45));
-		talks.add(new TalkVO("Rails for Python Developers ", 5));		
-		talks.add(new TalkVO("Communicating Over Distance", 60));
-		talks.add(new TalkVO("Accounting-Driven Development", 45));
-		talks.add(new TalkVO("Woah", 30));
-		talks.add(new TalkVO("Sit Down and Write", 30));
-		talks.add(new TalkVO("Pair Programming vs Noise", 45));
-		talks.add(new TalkVO("Rails Magic", 60));
-		talks.add(new TalkVO("Ruby on Rails: Why We Should Move On", 60));
-		talks.add(new TalkVO("Clojure Ate Scala (on my project)", 45));
-		talks.add(new TalkVO("Programming in the Boondocks of Seattle", 30));
-		talks.add(new TalkVO("Ruby vs. Clojure for Back-End Development", 30));
-		talks.add(new TalkVO("Ruby on Rails Legacy App Maintenance", 60));
-		talks.add(new TalkVO("A World Without HackerNews", 30));
-		talks.add(new TalkVO("User Interface CSS in Rails Apps", 30));
+		talks.add(new TalkVO(1, "Writing Fast Tests Against Enterprise Rails", 60));
+		talks.add(new TalkVO(2, "Overdoing it in Python", 45));
+		talks.add(new TalkVO(3, "Lua for the Masses", 30));
+		talks.add(new TalkVO(4, "Ruby Errors from Mismatched Gem Versions", 45));
+		talks.add(new TalkVO(5, "Common Ruby Errors", 45));
+		talks.add(new TalkVO(6, "Rails for Python Developers ", 5));		
+		talks.add(new TalkVO(7, "Communicating Over Distance", 60));
+		talks.add(new TalkVO(8, "Accounting-Driven Development", 45));
+		talks.add(new TalkVO(9, "Woah", 30));
+		talks.add(new TalkVO(10, "Sit Down and Write", 30));
+		talks.add(new TalkVO(11, "Pair Programming vs Noise", 45));
+		talks.add(new TalkVO(12, "Rails Magic", 60));
+		talks.add(new TalkVO(13, "Ruby on Rails: Why We Should Move On", 60));
+		talks.add(new TalkVO(14, "Clojure Ate Scala (on my project)", 45));
+		talks.add(new TalkVO(15, "Programming in the Boondocks of Seattle", 30));
+		talks.add(new TalkVO(16, "Ruby vs. Clojure for Back-End Development", 30));
+		talks.add(new TalkVO(17, "Ruby on Rails Legacy App Maintenance", 60));
+		talks.add(new TalkVO(18, "A World Without HackerNews", 30));
+		talks.add(new TalkVO(19, "User Interface CSS in Rails Apps", 30));
 		conferenceRequestVO.setTalks(talks);
 		return conferenceRequestVO;
-	}*/
+	}
 	
-	/*private void printConference(ConferenceVO conference) {
+	private static void printConference(ConferenceVO conference) {
 		System.out.println("Conference name: " + conference.getNameConference());
 		conference.getTracks().forEach(track -> {
 			System.out.println("=========================================");
@@ -76,10 +84,10 @@ public class DemoApplication /*implements CommandLineRunner*/ {
 		
 	}
 
-	private void printTalks(SessionVO sessionVO) {
+	private static void printTalks(SessionVO sessionVO) {
 		sessionVO.getTalkslist().forEach(talk -> {
 			System.out.println(talk.getStartTime().toString().concat(" ").concat(talk.getTalkName()).concat(" ").concat(talk.getTimeDuration().toString()).concat("m"));
 		});
-	}*/
+	}
 
 }
